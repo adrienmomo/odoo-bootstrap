@@ -5,10 +5,8 @@
 ## 2 - set the PGsql password
 
 ```bash
-cd odoo-bootstrap
-cp odoo_pg_pass.example odoo_pg_pass
+./bootstrap.sh --output_port <port> --sitename <name> [--db_password <password>]
 ```
-and then, edit `odoo_pg_pass` to set your own pg user password
 
 ## 2 - Build and run
 

@@ -1,22 +1,22 @@
 version: '3.1'
 services:
-  odoo_web:
-    container_name: odoo_web
-    image: odoo:17.0
+  <sitename>_odoo_web:
+    container_name: <sitename>_odoo_web
+    image: odoo:19.0
     depends_on:
-      - odoo_db
+      - <sitename>_odoo_db
     ports:
-      - "8069:8069"
+      - "<output_port>:8069"
     volumes:
-      - odoo-web-data:/var/lib/odoo
+      - ./<sitename>-odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
     environment:
       - PASSWORD_FILE=/run/secrets/postgresql_password
     secrets:
       - postgresql_password
-  odoo_db:
-    container_name: odoo_db
+  <sitename>_odoo_db:
+    container_name: <sitename>_odoo_db
     image: postgres:15
     environment:
       - POSTGRES_DB=postgres
